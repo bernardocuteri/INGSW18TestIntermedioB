@@ -22,10 +22,18 @@ public class Student {
 		return carrier;
 	}
 	
-	public void registerExam(Exam esame) {
-		carrier.add(esame);
-		
-	}
+	public void registerExam(Exam exam) {
+		  boolean exists = false;
+		  for (Exam e : carrier) {
+		   if (e.getName().equals(exam.getName())) 
+		    exists = true;
+		  }
+		  
+		  if(exists)
+		   throw new IllegalArgumentException();
+		  else
+		   carrier.add(exam);
+		 }
 	
 	public int getCreditSum() {
 		int totaleCrediti = 0;
