@@ -22,8 +22,32 @@ public class Student {
 		return carrier;
 	}
 
+	public void registerExam(Exam exam) {
+		if(carrier.contains(exam)) {
+			throw new RuntimeException();
+		}
+		else
+			carrier.add(exam);
+	}
+	public int getCreditSum() {
+		int sum = 0;
+		for(Exam e : carrier) {
+			sum += e.getCfu();
+		}
+		return sum;
+	}
 	
+	public double getWeightedSum() {
+		int sum = 0;
+		for(Exam e : carrier) {
+			sum += e.getGrade()*e.getCfu();
+		}
+		return sum/getCreditSum();
+	}
 	
+	public void clear() {
+		carrier.clear();
+	}
 	
 	
 	
