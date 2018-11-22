@@ -22,9 +22,33 @@ public class Student {
 		return carrier;
 	}
 
+	public void registerExam(Exam exam) {
+		for (Exam e : carrier) {
+			if (e.getName() == exam.getName()) throw new RuntimeException();
+		}
+			carrier.add(exam);
+		
+	}
 	
+	public int getCreditSum() {
+		int sum = 0;
+		
+		for(int i = 0; i < carrier.size(); i++)
+			sum += carrier.get(i).getCfu();
+		
+		return sum;
+	}
 	
-	
+	public int getWeightedSum() {
+		int sum = 0, sumCfu = 0;
+		
+		for(int i = 0; i < carrier.size(); i++) {
+			sum += (carrier.get(i).getCfu() * carrier.get(i).getGrade());
+			sumCfu += carrier.get(i).getCfu();
+		}
+		
+		return sum/sumCfu;
+	}
 	
 	
 	
