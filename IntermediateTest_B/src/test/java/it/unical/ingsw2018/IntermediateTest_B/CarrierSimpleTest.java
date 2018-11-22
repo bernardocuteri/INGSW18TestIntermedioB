@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class CarrierSimpleTest {
 	
-	private static final double DELTA1 = 1L;
+	
 	private static Student student;
 	
 	@BeforeClass
@@ -30,7 +30,7 @@ public class CarrierSimpleTest {
 		student.registerExam(new Exam("Biologia",18,6));
 		student.registerExam(new Exam("informatica",18,6));
 		
-		Assert.assertEquals(24,student.getCreditSum(),DELTA1);
+		Assert.assertEquals(24,student.getCreditSum());
 	}
 	
 }
