@@ -26,9 +26,4 @@ public class Exam {
 		return cfu;
 	}
 
-	
-	
-	
-	
-	
 }
