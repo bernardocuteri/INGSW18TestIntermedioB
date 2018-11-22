@@ -23,7 +23,7 @@ public class Student {
 	}
 
 	
-	public void registerExam(Exam exam) throws Exception
+	public void registerExam(Exam exam) throws Exception 
 	{
 		for (Exam currentExam : carrier) {
 			if (carrier.isEmpty())
@@ -31,7 +31,7 @@ public class Student {
 				carrier.add(exam); 
 				return ; 
 			}
-			if (currentExam.equals(exam))
+			if (currentExam.getName().equals(exam.getName()))
 			{
 				throw new Exception() ;
 			}
@@ -66,7 +66,6 @@ public class Student {
 		
 		s.registerExam(e1);
 		
-		System.out.println(s.getCarrier().get (0));
 	}
 	
 	
