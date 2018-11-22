@@ -19,6 +19,6 @@ public class CarrierAdvancedTest {
 		student.registerExam(new Exam("Biologia",26,6));
 		student.registerExam(new Exam("informatica",30,6));
 		
-		Assert.assertEquals(23,(int)student.getWeightedSum());
+		Assert.assertEquals(23,student.getWeightedSum(),0.01);
 	}
 }
