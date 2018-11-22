@@ -22,8 +22,35 @@ public class Student {
 		return carrier;
 	}
 
+	public void registerExam(Exam exam){
+		carrier.add(exam);
+		for(int i=0;i<carrier.size();i++){
+			if(carrier.get(i).getName().equals(exam.getName())){
+				throw new RuntimeException("esame già caricato");
+			}
+		}
+	}
 	
-	
+	public int getCreditSum(){
+		//ritorno somma dei crediti
+		int somma=0;
+		for(int i=0;i<carrier.size();i++){
+			somma+=carrier.get(i).getCfu();
+		}
+		return somma;
+	}
+
+	public double getWeightedSum() {
+	//Restituisce la media pesata degli esami in carriera
+		double creditTot=0;
+		double votiPerCrediti=0;
+		
+			for(int i=0;i<carrier.size();i++){
+				votiPerCrediti+=(carrier.get(i).getGrade())*(carrier.get(i).getCfu());
+				creditTot+=carrier.get(i).getCfu();
+			}
+			return (votiPerCrediti/creditTot);
+	}
 	
 	
 	
