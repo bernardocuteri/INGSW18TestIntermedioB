@@ -22,9 +22,32 @@ public class Student {
 		return carrier;
 	}
 
+	public void registerExam(Exam exam) {
+		for(Exam current : carrier) {
+			if(current.getName().equals(exam.getName()))
+					throw new InvalidInsertionException();
+		}
+		
+		carrier.add(exam);
+	}
 	
+	public int getCreditSum() {
+		int tot = 0;
+		for(Exam exam : carrier)
+			tot += exam.getCfu();
+		
+		return tot;
+	}
 	
-	
+	public double getWeightedSum() {
+		double m = 0.0;
+		
+		for(Exam exam : carrier)
+			m += exam.getGrade() * exam.getCfu();
+		
+		return m / this.getCreditSum();
+	}
+
 	
 	
 	
